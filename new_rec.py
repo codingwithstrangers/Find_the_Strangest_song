@@ -13,7 +13,7 @@ import rec
 
 
 def main():
-    tracks = rec.get_recommended_tracks(5, "27T030eWyCQRmDyuvr1kxY")
+    tracks = rec.get_recommended_tracks(3, '6XyY86QOPPrYVGvF9ch6wz') #number will populate tracks plus artist
 
     track_details = []
     count = 0

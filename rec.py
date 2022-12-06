@@ -5,8 +5,8 @@ import pprint
 
 
 def main():
-    limit = 8
-    seed_artists = "27T030eWyCQRmDyuvr1kxY"
+    limit = 3
+    seed_artists = "6XyY86QOPPrYVGvF9ch6wz"
 
     get_recommended_tracks(limit, seed_artists)
 
@@ -17,11 +17,11 @@ def get_recommended_tracks(limit, seed_artists):
     }
 
     #for all known ranges, best for using with genre and artist
-    seed_genres="german hard rock, metal, german rock "
+    seed_genres="alternative metal, rap metal, nu metal "
     seed_tracks = ""
-    target_tempo = ".050"
-    target_danceability = ".0452"
-    target_liveness = ".103"
+    target_tempo = "135.095"
+    target_danceability = "0.554"
+    target_liveness = "0.0731"
     target_popularity = "75"
     target_acousticness = ".315"
     target_energy = ".524"
@@ -70,7 +70,6 @@ def get_recommended_tracks(limit, seed_artists):
         )
 
     return tracks
-
 
 
 ## #Setting min/max for pram

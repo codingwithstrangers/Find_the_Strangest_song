@@ -19,8 +19,8 @@ BASE_URL = 'https://api.spotify.com/v1/'
 endpoint_url = "https://api.spotify.com/v1/recommendations?"
 
 # Track ID from the URI
-track_id = '3ovjw5HZZv43SxTwApooCM'
-artist_id = '27T030eWyCQRmDyuvr1kxY'
+track_id = '5ezkLDA74DwQhOROoDp2Pc'
+artist_id = '7pOKRPPfbtv5c7Kdv40LVo'
 
 # actual GET request with proper header as of now you need to make one for each stat
 t = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
