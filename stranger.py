@@ -56,8 +56,6 @@ def loop(input_list:list, value):
       'math': Math
     }
 
-
-
 #you have 2 choices here loop it all to do less
 #or print each one seen below
 track_id_info =  track_id_info = {

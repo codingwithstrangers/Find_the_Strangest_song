@@ -13,7 +13,15 @@ import rec
 
 
 def main():
+<<<<<<< HEAD
     tracks = rec.get_recommended_tracks(3, '6XyY86QOPPrYVGvF9ch6wz') # number will populate tracks plus artist
+=======
+<<<<<<< HEAD
+    tracks = rec.get_recommended_tracks(100, '6XyY86QOPPrYVGvF9ch6wz') #number will populate tracks plus artist
+=======
+    tracks = rec.get_recommended_tracks(3, '6XyY86QOPPrYVGvF9ch6wz') #number will populate tracks plus artist
+>>>>>>> 74b2f8b9fa8d5e9fe240bacd54d021d147d56c72
+>>>>>>> 4b3ca784d0311239dc1ccaeb25dacf8f23abd3dd
 
     track_details = []
     

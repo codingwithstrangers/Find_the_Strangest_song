@@ -20,16 +20,25 @@ def get_recommended_tracks(limit, seed_artists):
     #for all known ranges, best for using with genre and artist
     seed_genres="alternative metal, rap metal, nu metal "
     seed_tracks = ""
+<<<<<<< HEAD
+    target_tempo = "127.4963"
+    target_danceability = "0.4666"
+    target_liveness = "0.1642"
+    target_popularity = "60"
+    target_acousticness = "0.0313"
+    target_energy = "0.8407"
+=======
     target_tempo = "135.095"
     target_danceability = "0.554"
     target_liveness = "0.0731"
     target_popularity = "75"
     target_acousticness = ".315"
     target_energy = ".524"
+>>>>>>> 74b2f8b9fa8d5e9fe240bacd54d021d147d56c72
     target_instrumentalness = "0"
     target_key = "1"
-    target_speechiness = ".0351"
-    target_valence = ".246"
+    target_speechiness = "0.0984"
+    target_valence = "0.3871"
 
     endpoint_url = "https://api.spotify.com/v1/recommendations?"
     query = f'{endpoint_url}limit={limit}&seed_genres={seed_genres}&seed_tracks={seed_tracks}&seed_artists={seed_artists}'
