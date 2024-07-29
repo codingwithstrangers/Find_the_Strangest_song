@@ -1,16 +1,4 @@
 import csv
- 
-
-# # 1.
-# file = open('test.csv', 'w')
-# # 2.
-# writer = csv.writer(file)
-# # 3.
-# data = ["This", "is", "a", "Test"]
-# writer.writerow(data)
-# # 4.
-# file.close()
-
 import os
  
  

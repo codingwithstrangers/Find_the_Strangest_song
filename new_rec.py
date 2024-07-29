@@ -13,33 +13,26 @@ import rec
 
 
 def main():
-    tracks = rec.get_recommended_tracks(3, '6XyY86QOPPrYVGvF9ch6wz') #number will populate tracks plus artist
+    tracks = rec.get_recommended_tracks(3, '6XyY86QOPPrYVGvF9ch6wz') # number will populate tracks plus artist
 
     track_details = []
-    count = 0
+    
     for track in tracks:
-      
-        #update this so I can get all logic and artist
-        # track_detail = get_details(track["track_id"], track["artist_ids"][0])
         if len(track["artist_id"]) > 1:
-           
-            for artist_ids in track["artist_id"]:
-              
-
-                track_detail = get_details(track["track_id"], artist_ids)
-
+            for artist_id in track["artist_id"]:
+                track_detail = get_details(track["track_id"], artist_id)
                 track_details.append(track_detail)
         else:
             track_detail = get_details(track["track_id"], track["artist_id"][0])
             track_details.append(track_detail)
-            # test_export = export._export_to_csv(input_dict=track_details, export_filename="Rec1_export.csv")
 
-    pprint.pprint(track_details, sort_dicts=False)
+    print('track_load')
+    
+    # Export to CSV using rec_export
+    rec_export(input_dicts=track_details, export_filename="F:\\Coding with Strangers\\bestsongever-main\\find_song\\Rec_export.csv")
+    print('Task_done')
       
-    for track in track_details:
-
-        test_export = export._export_to_csv(input_dict=track, export_filename="F:\Coding with Strangers\\bestsongever-main\\bestsongever-main\\Rec_export.csv")
-
+  
 
 def get_details(track_id, artist_id):
     headers = {
@@ -62,9 +55,7 @@ def get_details(track_id, artist_id):
     h_content = json.loads(h.content)
     r_content = json.loads(r.content)
     s_content = json.loads(s.content)
-    # pprint.pprint(h_content)
-    #print(s_content.get('genres'))
-
+   
     #My Big DICt. 
     data = r_content
 
@@ -172,56 +163,17 @@ def get_details(track_id, artist_id):
 
     return track_id_info
 
+# Define rec_export function
+def rec_export(input_dicts, export_filename):
+    keys = input_dicts[0].keys() if input_dicts else []
+    
+    with open(export_filename, 'w', newline='', encoding='utf-8') as output_file:
+        dict_writer = csv.DictWriter(output_file, fieldnames=keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(input_dicts)
+    
+    print("csv done")
 
 
 if __name__ == "__main__":
     main()
-
-    #print(test_export)
-
-    # data_list=list(track_id_info.items())
-    # print(data_list)
-    # returns JSON object as 
-    # a dictionary
-
-    #bars = data.get('bars')
-    #beats = data.get('beats')
-    #tatums = data.get('tatums')
-
-    ##this will pull bars start info
-    #beatstart =  loop(beats, 'start').get('math')
-
-    ##this will pull bars duration info
-    #beatdur = loop(beats, 'duration').get('math')
-
-    ##this will pull bars confidence info
-    #beatcon = loop(beats, 'confidence').get('math')
-
-    ##this will pull bars start info
-    #tatstart =  loop(tatums, 'start').get('math')
-
-    ##this will pull bars duration info
-    #tatdur = loop(tatums, 'duration').get('math')
-
-    ##this will pull bars confidence info
-    #tatcon = loop(tatums, 'confidence').get('math')
-
-    ##this will pull bars start info
-    #barstart =  loop(bars, 'start').get('math')
-
-    ##this will pull bars duration info
-    #bardur = loop(bars, 'duration').get('math')
-
-    ##this will pull bars confidence info
-    #barcon = loop(bars, 'confidence').get('math')
-
-
-    
-
-
-## time_signature = estimated time signature for beats per measure
-## mode = 1 is major 0 is minor
-## Key Guide = The key the track is in. Integers map to pitches
-## using standard Pitch Class notation.
-## E.g. 0 = C, 1 = C♯/D♭, 2 = D, and so on. If no key was detected, the value is -1.
-##
