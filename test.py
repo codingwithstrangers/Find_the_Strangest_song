@@ -13,7 +13,8 @@ import test_rec
 
 
 def main():
-    tracks = test_rec.get_recommended_tracks(4,'6XyY86QOPPrYVGvF9ch6wz') # number will populate tracks plus artist
+    # tracks = test_rec.get_recommended_tracks(10,'0JQH8OHvGdooprROP18Wg6') 
+    tracks = test_rec.get_recommended_tracks(20,'2YZyLoL8N0Wb9xBt1NhZWg') 
 
     track_details = []
     
@@ -31,8 +32,29 @@ def main():
     # Export to CSV using rec_export
     rec_export(input_dicts=track_details, export_filename="F:\\Coding with Strangers\\bestsongever-main\\find_song\\Rec_export.csv")
     print('Task_done')
+
+# def main():
+#     seed_genres = "rap, hip_hop, rap metal"
+#     tracks = genres_rec.get_recommended_tracks(5,seed_genres) # number will populate tracks plus artist
+#     # tracks = genres_rec.
+#     track_details = []
+    
+#     for track in tracks:
+#         if len(track["artist_id"]) > 1:
+#             for artist_id in track["artist_id"]:
+#                 track_detail = get_details(track["track_id"], artist_id)
+#                 track_details.append(track_detail)
+#         else:
+#             track_detail = get_details(track["track_id"], track["artist_id"][0])
+#             track_details.append(track_detail)
+
+#     print('track_load')
+    
+#     # Export to CSV using rec_export
+#     rec_export(input_dicts=track_details, export_filename="F:\\Coding with Strangers\\bestsongever-main\\find_song\\Rec_export.csv")
+#     print('Task_done')
       
-  
+# this will take
 
 def get_details(track_id, artist_id):
     headers = {

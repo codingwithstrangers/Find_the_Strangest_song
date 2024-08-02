@@ -1,13 +1,12 @@
-import json
-import pprint
-import requests
 from main import access_token
+import requests
+import json
 
 def main():
     print("Starting main function...")
     limit = 3
-    seed_artists ="5KDIH2gF0VpelTqyQS7udb"
-    # seed_genres = ['alternative', 'rap']
+    seed_artists = "6XyY86QOPPrYVGvF9ch6wz"
+    
     tracks = get_recommended_tracks(limit, seed_artists)
     if tracks:
         print("Tracks received:", tracks)
@@ -15,22 +14,20 @@ def main():
     else:
         print("No tracks received.")
 
-
 def get_recommended_tracks(limit, seed_artists):
     print("Getting recommended tracks...")
     headers = {
         'Authorization': 'Bearer {token}'.format(token=access_token)
     }
 
-    # For all known ranges, best for using with genre and artist
-    seed_genres = "rap"
+    seed_genres = "alternative metal, rap metal, nu metal"
     seed_tracks = ""
-    target_tempo = "101.061"
-    target_danceability = "0.898"
+    target_tempo = "195.095"
+    target_danceability = "0.554"
     target_liveness = "0.0731"
-    target_popularity = "97"
+    target_popularity = "75"
     target_acousticness = ".315"
-    target_energy = ".472"
+    target_energy = ".524"
     target_instrumentalness = "0"
     target_key = "1"
     target_speechiness = ".0351"
@@ -65,25 +62,18 @@ def get_recommended_tracks(limit, seed_artists):
     # For each track in results
     for track in result_content.get("tracks", []):
         track_id = track["id"]
-        artist_ids = [artist["id"] for artist in track["artists"]]
-        artist_names = [artist["name"] for artist in track["artists"]]
-
         tracks.append({
-            "track_id": track_id,
-            "artist_id": artist_ids,
-            "artist_names": artist_names
+            "track_id": track_id
         })
 
     return tracks
 
-
 def save_to_json(tracks):
     print("Saving to JSON file...")
     # Write the result to a JSON file
-    with open('target_based.json', 'w') as f:
+    with open('track_based.json', 'w') as f:
         json.dump(tracks, f, indent=4)
     print("JSON file saved.")
-
 
 if __name__ == "__main__":
     main()
