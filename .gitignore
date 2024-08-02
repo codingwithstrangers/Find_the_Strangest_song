@@ -133,8 +133,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-<<<<<<< HEAD
+
+# extra files
+export.py
 keys.json
-=======
-key.json
->>>>>>> 4b3ca784d0311239dc1ccaeb25dacf8f23abd3dd
+bestsongever-main/
+design_doc/
+test_files/
+.vscode/
+.idea/
